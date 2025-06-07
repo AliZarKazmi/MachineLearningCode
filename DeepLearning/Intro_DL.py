@@ -123,7 +123,7 @@ print(output)
  
 
 
-''''
+'''
 
 # - you'll write code to do forward propagation for a neural network with 2 hidden layers. Each hidden layer has two nodes. 
 
