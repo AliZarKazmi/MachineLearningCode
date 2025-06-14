@@ -30,5 +30,35 @@
     3. Use backward propogation to calculate the slope of the loss function w.r.t each weight
     4. Multiply that slope by the learining rate and subtract from the current weights
     5. Keep going with that cycle untill we get to a flat part
-        
+
+
+
+
+    We learned about utilizing models built with the Keras library for deep learning tasks. This included how to save a trained model, reload it for future use, make predictions with the reloaded model, and verify its architecture. Specifically, you explored:
+
+1. Saving and Reloading Models: You discovered that models can be saved using the .save() method with a filename, typically with an .h5 extension for the HDF5 format. Reloading a saved model into memory is done with the load_model function.
+2. Making Predictions: You learned how to use a reloaded model to make predictions. For classification models, predictions output the probability distribution across classes. You practiced extracting the probability of a specific outcome using NumPy indexing.
+3. Verifying Model Architecture: You found out how to print a summary of a model's architecture with the .summary() method to ensure it matches expectations.
+
+
+
+
+
+
+
+** Creating predictions on new data using the .predict() method.
+** Extracting the predicted probability of a specific event being true with predicted_prob_true = predictions[:,1].
+
+
+
+This code snippet demonstrates the process:
+
+# Calculate predictions: predictions
+predictions = model.predict(pred_data)
+
+# Calculate predicted probability of survival: predicted_prob_true
+predicted_prob_true = predictions[:,1]
+
+# Print predicted_prob_true
+print(predicted_prob_true)
 '''
