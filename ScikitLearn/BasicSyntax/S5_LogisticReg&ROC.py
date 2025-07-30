@@ -71,6 +71,7 @@ from sklearn.metrics import roc_curve
 # fpr = Flase positive rate
 # tpr = true positive rate
 
+# Generate ROC curve values: fpr, tpr, thresholds
 fpr, tpr, thresholds = roc_curve(y_test,y_pred_probs)
 
 plt.plot([0,1],[0,1],'k--')
@@ -96,4 +97,46 @@ plt.show()
 
 from sklearn.metrics import roc_auc_score
 
+# Calculate roc_auc_score
 print(roc_auc_score(y_test, y_pred_probs))
+
+#-------------------------------------------------------------------------------------------------------------------------------------------
+'''
+ Key points included:
+
+Accuracy's limitations: You discovered that accuracy might not always be the best metric, especially in cases of class imbalance, such as in fraud detection scenarios where the majority of transactions are legitimate.
+
+Confusion Matrix: You learned how to create and interpret a confusion matrix, a 2-by-2 matrix that helps visualize the performance of a binary classifier. The matrix includes true positives, true negatives, false positives, and false negatives.
+
+Precision and Recall: Precision (the number of true positives divided by all positive predictions) and recall (the number of true positives divided by the sum of true positives and false negatives) were introduced as crucial metrics. High precision means a lower false positive rate, while high recall indicates a lower false negative rate.
+
+F1-Score: You learned about the F1-score, the harmonic mean of precision and recall, which is particularly useful when you need a balance between precision and recall.
+
+Practical Application: Using scikit-learn's classification_report and confusion_matrix, you practiced evaluating a model trained on a diabetes dataset. The exercise involved fitting a KNeighborsClassifier model, making predictions, and then generating a confusion matrix and classification report.
+'''
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+'''
+                        -> Confusion Matrix & Classification Report
+'''
+
+# Import confusion matrix and classification report
+from sklearn.metrics import confusion_matrix, classification_report
+
+# Fit the model, predict, and evaluate
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+
+# Calculate the confusion matrix
+print(confusion_matrix(y_test, y_pred))
+
+# Calculate the classification report
+print(classification_report(y_test, y_pred))
+
+'''
+Choosing Metrics: You explored how to decide on the most appropriate metric (precision, recall, F1-score) based on the problem context, emphasizing the importance of understanding the business or application goal to choose the right evaluation metric.
+
+**The ROC curve is above the dotted line, so the model performs better than randomly guessing the class of each observation.
+'''
+
